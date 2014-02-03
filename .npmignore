@@ -1,0 +1,11 @@
+# NPM Ignore
+
+# Examples
+#
+#   node_modules/
+#   /.tmp-file-*
+#   /tmp-dir/*
+#   /symlink*
+#
+node_modules/
+sources/

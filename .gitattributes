@@ -1,0 +1,27 @@
+# Git Attributes
+
+# Examples
+#
+#   text=auto
+#   text
+#   text eol=crlf
+#   text eol=lf
+#   binary
+#
+
+*       text=auto
+
+*.txt   text
+*.md    text
+*.json  text
+*.bat   text
+*.sh    text
+
+*.html  text
+*.css   text
+*.js    text
+
+*.png   binary
+*.jpg   binary
+*.gif   binary
+*.ico   binary

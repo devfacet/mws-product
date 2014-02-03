@@ -1,0 +1,38 @@
+{
+  "name": "mws-product",
+  "version": "0.1.0",
+  "description": "MWS Product module can be used for retrieving product information via Amazon MWS API.",
+  "keywords": [
+    "amazon",
+    "mws",
+    "product"
+  ],
+  "homepage": "http://github.com/cmfatih/mws-product",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cmfatih/mws-product.git"
+  },
+  "bugs": {
+    "url": "http://github.com/cmfatih/mws-product/issues"
+  },
+  "license": "MIT",
+  "private": false,
+  "author": {
+    "name": "cmfatih",
+    "url": "http://github.com/cmfatih"
+  },
+  "contributors": [],
+  "main": "./lib/mws-product.js",
+  "scripts": {
+    "test": "node ./test/test-all.js"
+  },
+  "engines": [
+    "node >= 0.10.21"
+  ],
+  "dependencies": {
+    "utilex": "0.2.x",
+    "request": "2.x",
+    "qs": "0.6.x",
+    "xml2js": "0.4.x"
+  }
+}
