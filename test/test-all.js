@@ -44,7 +44,7 @@ if(gTestList.SERVICESTATUS === true) {
 
 // Test for matching product for id
 if(gTestList.MATCHINGPRODUCTFORID === true) {
-  gMWSProd.matchingProductForId({idType: 'ASIN', idList: ['B00863WC40','B008648946']}, function(err, data) {
+  gMWSProd.matchingProductForId({idType: 'ASIN', idList: ['B00863WC40', 'B008648946']}, function(err, data) {
     console.log('MATCHINGPRODUCTFORID:');
 
     if(!err) {
