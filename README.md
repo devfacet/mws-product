@@ -1,8 +1,8 @@
 ## MWS Product
 
-  [mws-product](http://github.com/cmfatih/mws-product) is a [node.js](http://nodejs.org) module for retrieving product information via Amazon MWS API.  
+[mws-product](http://github.com/cmfatih/mws-product) is a [node.js](http://nodejs.org) module for retrieving product information via Amazon MWS API.  
 
-  mws-product on [npm registry](http://npmjs.org/package/mws-product)
+mws-product on [npm registry](http://npmjs.org/package/mws-product)
 
 ### Installation
 
