@@ -2,26 +2,29 @@
 
 # Examples
 #
-#   text=auto
 #   text
 #   text eol=crlf
 #   text eol=lf
+#   text=auto
 #   binary
 #
 
 *       text=auto
 
-*.txt   text
-*.md    text
-*.json  text
-*.bat   text
-*.sh    text
-
-*.html  text
-*.css   text
-*.js    text
-
 *.png   binary
 *.jpg   binary
 *.gif   binary
 *.ico   binary
+
+*.txt   text
+*.md    text
+*.html  text
+*.css   text
+*.js    text
+*.json  text
+
+*.bat   text
+*.sh    text
+*.exe   binary
+
+*.go    text
