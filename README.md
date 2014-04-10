@@ -6,14 +6,15 @@ mws-product on [npm registry](http://npmjs.org/package/mws-product)
 
 ### Installation
 
-For latest published version
+For latest release
 ```
 npm install mws-product
 ```
 
-or for HEAD version
+For HEAD
 ```
 git clone https://github.com/cmfatih/mws-product.git
+npm install
 ```
 
 ### Usage
@@ -23,7 +24,7 @@ git clone https://github.com/cmfatih/mws-product.git
 npm test
 ```
 
-#### Example
+#### Examples
 
 ##### Service Status
 ```javascript
@@ -382,7 +383,7 @@ gMWSProd.matchingProductForId({idType: 'ASIN', idList: ['B00863WC40','B008648946
 */
 ```
 
-### Implementation
+### Implementations
 
 - [x] GetServiceStatus  
 - [ ] ListMatchingProducts  

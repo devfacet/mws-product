@@ -5,6 +5,10 @@
 ```
 ```
 
+### 0.2.1 (2014-04-10)
+
+* Misc. updates
+
 ### 0.2.0 (2014-02-03)
 
 * Changes for return object structure
