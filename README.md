@@ -14,7 +14,6 @@ npm install mws-product
 For HEAD
 ```
 git clone https://github.com/cmfatih/mws-product.git
-npm install
 ```
 
 ### Usage
