@@ -25,17 +25,18 @@ npm test
 
 #### Examples
 
-##### Service Status
-```javascript
-var mMWSProd = require('mws-product');
-var gMWSProd = mMWSProd({marketplace: 'US'});
+**Service Status**
 
-gMWSProd.serviceStatus(function(err, data) {
+```javascript
+var mwsprod = require('mws-product');
+var mwsProd = mwsprod({marketplace: 'US'});
+
+mwsProd.serviceStatus(function(err, data) {
   if(!err) {
     console.log(JSON.stringify(data, null, 2));
   }
   else {
-    console.log("ERROR!:" + JSON.stringify(err, null, 2));
+    console.log(JSON.stringify(err, null, 2));
   }
 });
 
@@ -48,27 +49,30 @@ gMWSProd.serviceStatus(function(err, data) {
     },
     "GetServiceStatusResult": {
       "Status": "GREEN",
-      "Timestamp": "2014-02-03T20:19:39.624Z"
+      "Timestamp": "2014-04-21T02:56:09.178Z"
     },
     "ResponseMetadata": {
-      "RequestId": "3c9.."
+      "RequestId": "7f5..."
     }
   }
 }
 */
 ```
 
-##### Matching Product For Id
-```javascript
-var mMWSProd = require('mws-product');
-var gMWSProd = mMWSProd({auth: {sellerId: 'SELLERID', accessKeyId: 'ACCESSKEYID', secretKey: 'SECRETKEY'}, marketplace: 'US'});
+-
 
-gMWSProd.matchingProductForId({idType: 'ASIN', idList: ['B00863WC40','B008648946']}, function(err, data) {
+**Matching Product For Id**
+
+```javascript
+var mwsprod = require('mws-product');
+var mwsProd = mwsprod({auth: {sellerId: 'SELLERID', accessKeyId: 'ACCESSKEYID', secretKey: 'SECRETKEY'}, marketplace: 'US'});
+
+mwsProd.matchingProductForId({idType: 'ASIN', idList: ['B00863WC40','B008648946']}, function(err, data) {
   if(!err) {
     console.log(JSON.stringify(data, null, 2));
   }
   else {
-    console.log("ERROR!:" + JSON.stringify(err, null, 2));
+    console.log(JSON.stringify(err, null, 2));
   }
 });
 
@@ -198,7 +202,7 @@ gMWSProd.matchingProductForId({idType: 'ASIN', idList: ['B00863WC40','B008648946
                 "ns2:Publisher": "The Bridge Direct",
                 "ns2:ReleaseDate": "2012-10-01",
                 "ns2:SmallImage": {
-                  "ns2:URL": "http://ecx.images-amazon.com/images/I/51NPB47z2pL._SL75_.jpg",
+                  "ns2:URL": "http://ecx.images-amazon.com/images/I/51BFb%2BnQOdL._SL75_.jpg",
                   "ns2:Height": {
                     "C$": "75",
                     "A$": {
@@ -206,7 +210,7 @@ gMWSProd.matchingProductForId({idType: 'ASIN', idList: ['B00863WC40','B008648946
                     }
                   },
                   "ns2:Width": {
-                    "C$": "75",
+                    "C$": "69",
                     "A$": {
                       "Units": "pixels"
                     }
@@ -221,7 +225,7 @@ gMWSProd.matchingProductForId({idType: 'ASIN', idList: ['B00863WC40','B008648946
             "SalesRankings": {
               "SalesRank": {
                 "ProductCategoryId": "toy_display_on_website",
-                "Rank": "12136"
+                "Rank": "20775"
               }
             }
           }
@@ -367,7 +371,7 @@ gMWSProd.matchingProductForId({idType: 'ASIN', idList: ['B00863WC40','B008648946
             "SalesRankings": {
               "SalesRank": {
                 "ProductCategoryId": "toy_display_on_website",
-                "Rank": "22456"
+                "Rank": "24762"
               }
             }
           }
@@ -375,7 +379,7 @@ gMWSProd.matchingProductForId({idType: 'ASIN', idList: ['B00863WC40','B008648946
       }
     ],
     "ResponseMetadata": {
-      "RequestId": "bdd.."
+      "RequestId": "b4d..."
     }
   }
 }

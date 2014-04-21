@@ -2,56 +2,52 @@
 /* jslint node: true */
 'use strict';
 
-var mMWSProd  = require('../'),
-    mUtilex   = require('utilex')
+var mwsprod = require('../'),
+    utilex  = require('utilex')
 ;
 
 // Init vars
-var gTestList = {
-      SERVICESTATUS: true,
-      MATCHINGPRODUCTFORID: false
-    },
-
-    gAuth     = {sellerId: 'SELLERID', accessKeyId: 'ACCESSKEYID', secretKey: 'SECRETKEY'},
-    gMP       = 'US',
-    gMWSProd
+var testList  = {SERVICESTATUS: true, MATCHINGPRODUCTFORID: false},
+    auth      = {sellerId: 'SELLERID', accessKeyId: 'ACCESSKEYID', secretKey: 'SECRETKEY'},
+    mplace    = 'US',
+    mwsProd
 ;
 
-if(mUtilex.tidyArgs().testDEV !== undefined) {
-  gTestList.SERVICESTATUS               = true;
-  gTestList.MATCHINGPRODUCTFORID        = true;
-  if(mUtilex.tidyArgs().authJSON) gAuth = require(mUtilex.tidyArgs().authJSON);
+if(utilex.tidyArgs().testDEV !== undefined) {
+  testList.SERVICESTATUS              = true;
+  testList.MATCHINGPRODUCTFORID       = true;
+  if(utilex.tidyArgs().authJSON) auth = require(utilex.tidyArgs().authJSON);
 }
 
-gMWSProd = mMWSProd({auth: gAuth, marketplace: gMP});
+mwsProd = mwsprod({auth: auth, marketplace: mplace});
 
 // Tests
-console.log('test-all.js');
+utilex.tidyLog('test-all.js');
 
 // Test for service status
-if(gTestList.SERVICESTATUS === true) {
-  gMWSProd.serviceStatus(function(err, data) {
-    console.log('SERVICESTATUS:');
+if(testList.SERVICESTATUS === true) {
+  mwsProd.serviceStatus(function(err, data) {
+    utilex.tidyLog('SERVICESTATUS:');
 
     if(!err) {
       console.log(JSON.stringify(data, null, 2));
     }
     else {
-      console.log("ERROR!:" + JSON.stringify(err, null, 2));
+      console.log(JSON.stringify(err, null, 2));
     }
   });
 }
 
 // Test for matching product for id
-if(gTestList.MATCHINGPRODUCTFORID === true) {
-  gMWSProd.matchingProductForId({idType: 'ASIN', idList: ['B00863WC40', 'B008648946']}, function(err, data) {
-    console.log('MATCHINGPRODUCTFORID:');
+if(testList.MATCHINGPRODUCTFORID === true) {
+  mwsProd.matchingProductForId({idType: 'ASIN', idList: ['B00863WC40', 'B008648946']}, function(err, data) {
+    utilex.tidyLog('MATCHINGPRODUCTFORID:');
 
     if(!err) {
       console.log(JSON.stringify(data, null, 2));
     }
     else {
-      console.log("ERROR!:" + JSON.stringify(err, null, 2));
+      console.log(JSON.stringify(err, null, 2));
     }
   });
 }
