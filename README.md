@@ -2,7 +2,7 @@
 
 [mws-product](http://github.com/cmfatih/mws-product) is a [node.js](http://nodejs.org) module for retrieving product information via Amazon MWS API.  
 
-mws-product on [npm registry](http://npmjs.org/package/mws-product)
+mws-product on [npm registry](http://npmjs.org/package/mws-product)  
 
 ### Installation
 
@@ -28,15 +28,14 @@ npm test
 **Service Status**
 
 ```javascript
-var mwsprod = require('mws-product');
-var mwsProd = mwsprod({marketplace: 'US'});
+var mwsprod     = require('mws-product');
+var appMWSProd  = mwsprod({marketplace: 'US'});
 
-mwsProd.serviceStatus(function(err, data) {
+appMWSProd.serviceStatus(function(err, data) {
   if(!err) {
     console.log(JSON.stringify(data, null, 2));
-  }
-  else {
-    console.log(JSON.stringify(err, null, 2));
+  } else {
+    console.log(err);
   }
 });
 
@@ -64,15 +63,14 @@ mwsProd.serviceStatus(function(err, data) {
 **Matching Product For Id**
 
 ```javascript
-var mwsprod = require('mws-product');
-var mwsProd = mwsprod({auth: {sellerId: 'SELLERID', accessKeyId: 'ACCESSKEYID', secretKey: 'SECRETKEY'}, marketplace: 'US'});
+var mwsprod     = require('mws-product');
+var appMWSProd  = mwsprod({auth: {sellerId: 'SELLERID', accessKeyId: 'ACCESSKEYID', secretKey: 'SECRETKEY'}, marketplace: 'US'});
 
-mwsProd.matchingProductForId({idType: 'ASIN', idList: ['B00863WC40','B008648946']}, function(err, data) {
+appMWSProd.matchingProductForId({idType: 'ASIN', idList: ['B00863WC40','B008648946']}, function(err, data) {
   if(!err) {
     console.log(JSON.stringify(data, null, 2));
-  }
-  else {
-    console.log(JSON.stringify(err, null, 2));
+  } else {
+    console.log(err);
   }
 });
 
