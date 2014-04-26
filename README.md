@@ -30,8 +30,8 @@ npm test
 **Service Status**
 
 ```javascript
-var mwsprod     = require('mws-product');
-var appMWSProd  = mwsprod({marketplace: 'US'});
+var mwsProd     = require('mws-product');
+var appMWSProd  = mwsProd({marketplace: 'US'});
 
 appMWSProd.serviceStatus(function(err, data) {
   if(!err) {
@@ -65,8 +65,8 @@ appMWSProd.serviceStatus(function(err, data) {
 **Matching Product For Id**
 
 ```javascript
-var mwsprod     = require('mws-product');
-var appMWSProd  = mwsprod({auth: {sellerId: 'SELLERID', accessKeyId: 'ACCESSKEYID', secretKey: 'SECRETKEY'}, marketplace: 'US'});
+var mwsProd     = require('mws-product');
+var appMWSProd  = mwsProd({auth: {sellerId: 'SELLERID', accessKeyId: 'ACCESSKEYID', secretKey: 'SECRETKEY'}, marketplace: 'US'});
 
 appMWSProd.matchingProductForId({idType: 'ASIN', idList: ['B00863WC40','B008648946']}, function(err, data) {
   if(!err) {
