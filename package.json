@@ -24,7 +24,7 @@
   "contributors": [],
   "main": "./lib/mws-product.js",
   "scripts": {
-    "test": "node ./test/test-all.js"
+    "test": "node ./node_modules/mocha/bin/mocha --timeout 5000 --slow 1000 --reporter spec test/test-all.js"
   },
   "engines": [
     "node >= 0.10.21"
