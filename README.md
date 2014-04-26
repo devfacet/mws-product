@@ -16,6 +16,7 @@ For HEAD
 ```
 git clone https://github.com/cmfatih/mws-product.git
 ```
+[![Build Status](https://travis-ci.org/cmfatih/mws-product.svg?branch=master)](https://travis-ci.org/cmfatih/mws-product)
 
 ### Usage
 
