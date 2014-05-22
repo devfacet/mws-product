@@ -1,9 +1,10 @@
 ## MWS Product
 
-[mws-product](http://github.com/cmfatih/mws-product) is a [node.js](http://nodejs.org) module for retrieving product information via Amazon MWS API.  
+[mws-product](http://github.com/cmfatih/mws-product) is a Node.js module for 
+retrieving product information via Amazon MWS API.  
 
-mws-product on [npm registry](http://npmjs.org/package/mws-product)  
-[![NPM](https://nodei.co/npm/mws-product.png?compact=true)](https://nodei.co/npm/mws-product/)
+[![Build Status][travis-image]][travis-url] | [![NPM][npm-image]][npm-url]
+---------- | ----------
 
 ### Installation
 
@@ -16,7 +17,6 @@ For HEAD
 ```
 git clone https://github.com/cmfatih/mws-product.git
 ```
-[![Build Status](https://travis-ci.org/cmfatih/mws-product.svg?branch=master)](https://travis-ci.org/cmfatih/mws-product)
 
 ### Usage
 
@@ -30,8 +30,8 @@ npm test
 **Service Status**
 
 ```javascript
-var mwsProd     = require('mws-product');
-var appMWSProd  = mwsProd({marketplace: 'US'});
+var mwsProd    = require('mws-product');
+var appMWSProd = mwsProd({marketplace: 'US'});
 
 appMWSProd.serviceStatus(function(err, data) {
   if(!err) {
@@ -65,8 +65,8 @@ appMWSProd.serviceStatus(function(err, data) {
 **Matching Product For Id**
 
 ```javascript
-var mwsProd     = require('mws-product');
-var appMWSProd  = mwsProd({auth: {sellerId: 'SELLERID', accessKeyId: 'ACCESSKEYID', secretKey: 'SECRETKEY'}, marketplace: 'US'});
+var mwsProd    = require('mws-product');
+var appMWSProd = mwsProd({auth: {sellerId: 'SELLERID', accessKeyId: 'ACCESSKEYID', secretKey: 'SECRETKEY'}, marketplace: 'US'});
 
 appMWSProd.matchingProductForId({idType: 'ASIN', idList: ['B00863WC40','B008648946']}, function(err, data) {
   if(!err) {
@@ -410,3 +410,9 @@ For all notable changes see [CHANGELOG.md](https://github.com/cmfatih/mws-produc
 Copyright (c) 2014 Fatih Cetinkaya (http://github.com/cmfatih/mws-product)  
 Licensed under The MIT License (MIT)  
 For the full copyright and license information, please view the LICENSE.txt file.
+
+[npm-url]: http://npmjs.org/package/mws-product
+[npm-image]: https://badge.fury.io/js/mws-product.png
+
+[travis-url]: https://travis-ci.org/cmfatih/mws-product
+[travis-image]: https://travis-ci.org/cmfatih/mws-product.svg?branch=master
