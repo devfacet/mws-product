@@ -1,11 +1,13 @@
-//JSHint Configuration
+// JSHint Configuration
 
 {
-  "node": true,
-  "eqeqeq": false,
+  "eqeqeq": true,
   "trailing": true,
-  "strict": false,
-  
+  "strict": true,
+
+  "unused": true,         // Warns for unused variables
+  "forin": true,          // Requires all for in loops to filter object's items
+
   "sub": true,            // Tolerate using `[]` notation
   "laxbreak": true,       // Tolerate possibly unsafe line breakings
 

@@ -11,18 +11,16 @@ var mwsProd = require('../'),
 
 // Tests
 
-// Test for amazon seller module
+// Test for the module
 describe('mwsProd', function() {
 
-  // Init vars
-  var auth        = {sellerId: 'SELLERID', accessKeyId: 'ACCESSKEYID', secretKey: 'SECRETKEY'},
-      mplace      = 'US',
-      appMWSProd  // mwsProd instance
+  var auth       = {sellerId: 'SELLERID', accessKeyId: 'ACCESSKEYID', secretKey: 'SECRETKEY'},
+      mplace     = 'US',
+      appMWSProd // mwsProd instance
   ;
 
-  if(utilex.tidyArgs().testDEV !== undefined && utilex.tidyArgs().authJSON) {
+  if(utilex.tidyArgs().testDEV !== undefined && utilex.tidyArgs().authJSON)
     auth = require(utilex.tidyArgs().authJSON);
-  }
 
   appMWSProd = mwsProd({auth: auth, marketplace: mplace});
 
@@ -44,9 +42,8 @@ describe('mwsProd', function() {
     });
   });
 
-  if(auth.sellerId && auth.sellerId != 'SELLERID') {
+  if(auth.sellerId && auth.sellerId !== 'SELLERID') {
 
-    // Init var
     var prodID = 'B00863WC40';
 
     it('should get matching products for ' + prodID, function(done) {

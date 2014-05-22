@@ -9,3 +9,6 @@
 sources/
 node_modules/
 npm-debug.log
+
+*.heapsnapshot
+.DS_Store
