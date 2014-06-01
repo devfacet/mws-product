@@ -47,7 +47,7 @@ describe('mwsProd', function() {
     var prodID = 'B00863WC40';
 
     it('should query a list of matching products for ' + prodID, function(done) {
-      appMWSProd.matchingProducts({query: 'B00863WC40', queryContextId: 'All'}, function(err, data) {
+      appMWSProd.matchingProducts({query: prodID, queryContextId: 'All'}, function(err, data) {
         if(err) {
           done(err.message);
           return;
@@ -86,7 +86,7 @@ describe('mwsProd', function() {
     });
 
     it('should get matching product for ' + prodID, function(done) {
-      appMWSProd.matchingProduct({ASINList: [prodID]}, function(err, data) {
+      appMWSProd.matchingProduct({asinList: [prodID]}, function(err, data) {
         if(err) {
           done(err.message);
           return;
@@ -106,7 +106,7 @@ describe('mwsProd', function() {
     });    
 
     it('should get competitive pricing for ' + prodID, function(done) {
-      appMWSProd.competitivePricingForAsin({ASINList: [prodID]}, function(err, data) {
+      appMWSProd.competitivePricingForASIN({asinList: [prodID]}, function(err, data) {
         if(err) {
           done(err.message);
           return;
@@ -126,7 +126,7 @@ describe('mwsProd', function() {
     });
 
     it('should get lowest offer listings for ' + prodID, function(done) {
-      appMWSProd.lowestOfferListingsForAsin({ASINList: [prodID]}, function(err, data) {
+      appMWSProd.lowestOfferListingsForASIN({asinList: [prodID]}, function(err, data) {
         if(err) {
           done(err.message);
           return;
@@ -146,7 +146,7 @@ describe('mwsProd', function() {
     });
 
     it("should return seller's pricing info for " + prodID, function(done) {
-      appMWSProd.myPriceForAsin({ASINList: [prodID]}, function(err, data) {
+      appMWSProd.myPriceForASIN({asinList: [prodID]}, function(err, data) {
         if(err) {
           done(err.message);
           return;
@@ -166,7 +166,7 @@ describe('mwsProd', function() {
     });
 
     it("should return parent categories for " + prodID, function(done) {
-      appMWSProd.productCategoriesForAsin({ASIN: prodID}, function(err, data) {
+      appMWSProd.productCategoriesForASIN({asin: prodID}, function(err, data) {
         if(err) {
           done(err.message);
           return;
