@@ -65,5 +65,25 @@ describe('mwsProd', function() {
         done();
       });
     });
+
+    it('should get competitive pricing for ' + prodID, function(done) {
+      appMWSProd.competitivePricingForAsin({ASINList: [prodID]}, function(err, data) {
+        if(err) {
+          done(err.message);
+          return;
+        }
+
+        expect(data).to.have.property('GetCompetitivePricingForASINResponse');
+        var gmpfiresp = data.GetCompetitivePricingForASINResponse;
+        expect(gmpfiresp).to.be.a('object');
+        expect(gmpfiresp).to.have.property('GetCompetitivePricingForASINResult');
+        var gmpfires = gmpfiresp.GetCompetitivePricingForASINResult;
+        expect(gmpfires).to.be.a('array');
+        expect(gmpfires[0]).to.have.property('A$');
+        expect(gmpfires[0]['A$']).to.be.a('object');
+        expect(gmpfires[0]['A$']).to.have.property('ASIN', prodID);
+        done();
+      });
+    });
   }
 });
