@@ -389,17 +389,17 @@ appMWSProd.matchingProductForId({idType: 'ASIN', idList: ['B00863WC40','B0086489
 ### Implementations
 
 - [x] GetServiceStatus  
-- [ ] ListMatchingProducts  
-- [ ] ~~GetMatchingProduct~~  
+- [x] ListMatchingProducts  
+- [x] ~~GetMatchingProduct~~  
 - [x] GetMatchingProductForId  
-- [ ] GetCompetitivePricingForSKU  
-- [ ] GetCompetitivePricingForASIN  
-- [ ] GetLowestOfferListingsForSKU  
-- [ ] GetLowestOfferListingsForASIN  
-- [ ] GetMyPriceForSKU  
-- [ ] GetMyPriceForASIN  
-- [ ] GetProductCategoriesForSKU  
-- [ ] GetProductCategoriesForASIN  
+- [x] GetCompetitivePricingForSKU  
+- [x] GetCompetitivePricingForASIN  
+- [x] GetLowestOfferListingsForSKU  
+- [x] GetLowestOfferListingsForASIN  
+- [x] GetMyPriceForSKU  
+- [x] GetMyPriceForASIN  
+- [x] GetProductCategoriesForSKU  
+- [x] GetProductCategoriesForASIN  
 
 ### Changelog
 
