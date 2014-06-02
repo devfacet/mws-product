@@ -25,6 +25,21 @@ git clone https://github.com/cmfatih/mws-product.git
 npm test
 ```
 
+#### Full API test
+
+Create a JSON file (ex. `auth.json`) like below;
+```JSON
+{
+  "sellerId": "SELLERID",
+  "accessKeyId": "ACCESSKEYID",
+  "secretKey": "SECRETKEY"
+}
+```
+and execute the following command;
+```
+node ./node_modules/mocha/bin/mocha --reporter spec test/test-all.js --authJSON ../auth.json
+```
+
 #### Examples
 
 **Service Status**
