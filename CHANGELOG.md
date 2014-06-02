@@ -5,6 +5,11 @@
 ```
 ```
 
+### 0.3.0 (2014-06-01)
+
+* Completed Products API Implementation [nbarthel]
+* Changes for auth
+
 ### 0.2.4 (2014-05-22)
 
 * Update badges
