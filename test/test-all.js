@@ -6,8 +6,7 @@
 
 var mwsProd = require('../'),
     utilex  = require('utilex'),
-    expect  = require('chai').expect
-;
+    expect  = require('chai').expect;
 
 // Tests
 
@@ -19,7 +18,7 @@ describe('mwsProd', function() {
       appMWSProd // mwsProd instance
   ;
 
-  if(utilex.tidyArgs().testDEV !== undefined && utilex.tidyArgs().authJSON)
+  if(utilex.tidyArgs().authJSON)
     auth = require(utilex.tidyArgs().authJSON);
 
   appMWSProd = mwsProd({auth: auth, marketplace: mplace});
@@ -96,14 +95,14 @@ describe('mwsProd', function() {
         var respData = data.GetMatchingProductForIdResponse;
         expect(respData).to.be.a('object');
         expect(respData).to.have.property('GetMatchingProductForIdResult');
-        var resData2 = respData.GetMatchingProductForIdResult;
+        var reslData = respData.GetMatchingProductForIdResult;
         expect(reslData).to.be.a('array');
         expect(reslData[0]).to.have.property('A$');
         expect(reslData[0]['A$']).to.be.a('object');
         expect(reslData[0]['A$']).to.have.property('Id', prodID);
         done();
       });
-    }); 
+    });
 
     it('should get (GetCompetitivePricingForASIN) competitive pricing for ' + prodID, function(done) {
       appMWSProd.competitivePricingForASIN({asinList: [prodID]}, function(err, data) {
@@ -182,6 +181,6 @@ describe('mwsProd', function() {
         expect(reslData[0]['Self']).to.be.a('object');
         done();
       });
-    });  
+    });
   }
 });
