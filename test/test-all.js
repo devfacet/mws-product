@@ -32,12 +32,12 @@ describe('mwsProd', function() {
       }
 
       expect(data).to.have.property('GetServiceStatusResponse');
-      var gssr = data.GetServiceStatusResponse;
-      expect(gssr).to.be.a('object');
-      expect(gssr).to.have.property('GetServiceStatusResult');
-      expect(gssr.GetServiceStatusResult).to.be.a('object');
-      expect(gssr.GetServiceStatusResult).to.have.property('Status');
-      expect(gssr.GetServiceStatusResult.Status).to.be.a('string');
+      var respData = data.GetServiceStatusResponse;
+      expect(respData).to.be.a('object');
+      expect(respData).to.have.property('GetServiceStatusResult');
+      expect(respData.GetServiceStatusResult).to.be.a('object');
+      expect(respData.GetServiceStatusResult).to.have.property('Status');
+      expect(respData.GetServiceStatusResult.Status).to.be.a('string');
       done();
     });
   });
@@ -46,7 +46,7 @@ describe('mwsProd', function() {
 
     var prodID = 'B00863WC40';
 
-    it('should query a list of matching products for ' + prodID, function(done) {
+    it('should get (ListMatchingProducts) a list of matching products for ' + prodID, function(done) {
       appMWSProd.matchingProducts({query: prodID, queryContextId: 'All'}, function(err, data) {
         if(err) {
           done(err.message);
@@ -54,38 +54,18 @@ describe('mwsProd', function() {
         }
 
         expect(data).to.have.property('ListMatchingProductsResponse');
-        var gmpfiresp = data.ListMatchingProductsResponse;
-        expect(gmpfiresp).to.be.a('object');
-        expect(gmpfiresp).to.have.property('ListMatchingProductsResult');
-        var gmpfires = gmpfiresp.ListMatchingProductsResult;
-        expect(gmpfires).to.be.a('array');
-        expect(gmpfires[0]).to.have.property('Products');
-        expect(gmpfires[0]['Products']).to.be.a('object');
+        var respData = data.ListMatchingProductsResponse;
+        expect(respData).to.be.a('object');
+        expect(respData).to.have.property('ListMatchingProductsResult');
+        var reslData = respData.ListMatchingProductsResult;
+        expect(reslData).to.be.a('array');
+        expect(reslData[0]).to.have.property('Products');
+        expect(reslData[0]['Products']).to.be.a('object');
         done();
       });
     });
 
-    it('should get matching products for ' + prodID, function(done) {
-      appMWSProd.matchingProductForId({idType: 'ASIN', idList: [prodID]}, function(err, data) {
-        if(err) {
-          done(err.message);
-          return;
-        }
-
-        expect(data).to.have.property('GetMatchingProductForIdResponse');
-        var gmpfiresp = data.GetMatchingProductForIdResponse;
-        expect(gmpfiresp).to.be.a('object');
-        expect(gmpfiresp).to.have.property('GetMatchingProductForIdResult');
-        var gmpfires = gmpfiresp.GetMatchingProductForIdResult;
-        expect(gmpfires).to.be.a('array');
-        expect(gmpfires[0]).to.have.property('A$');
-        expect(gmpfires[0]['A$']).to.be.a('object');
-        expect(gmpfires[0]['A$']).to.have.property('Id', prodID);
-        done();
-      });
-    });
-
-    it('should get matching product for ' + prodID, function(done) {
+    it('should get (GetMatchingProduct) matching product for ' + prodID, function(done) {
       appMWSProd.matchingProduct({asinList: [prodID]}, function(err, data) {
         if(err) {
           done(err.message);
@@ -93,19 +73,39 @@ describe('mwsProd', function() {
         }
 
         expect(data).to.have.property('GetMatchingProductResponse');
-        var gmpfiresp = data.GetMatchingProductResponse;
-        expect(gmpfiresp).to.be.a('object');
-        expect(gmpfiresp).to.have.property('GetMatchingProductResult');
-        var gmpfires = gmpfiresp.GetMatchingProductResult;
-        expect(gmpfires).to.be.a('array');
-        expect(gmpfires[0]).to.have.property('A$');
-        expect(gmpfires[0]['A$']).to.be.a('object');
-        expect(gmpfires[0]['A$']).to.have.property('ASIN', prodID);
+        var respData = data.GetMatchingProductResponse;
+        expect(respData).to.be.a('object');
+        expect(respData).to.have.property('GetMatchingProductResult');
+        var reslData = respData.GetMatchingProductResult;
+        expect(reslData).to.be.a('array');
+        expect(reslData[0]).to.have.property('A$');
+        expect(reslData[0]['A$']).to.be.a('object');
+        expect(reslData[0]['A$']).to.have.property('ASIN', prodID);
         done();
       });
-    });    
+    });
 
-    it('should get competitive pricing for ' + prodID, function(done) {
+    it('should get (GetMatchingProductForId) matching products for ' + prodID, function(done) {
+      appMWSProd.matchingProductForId({idType: 'ASIN', idList: [prodID]}, function(err, data) {
+        if(err) {
+          done(err.message);
+          return;
+        }
+
+        expect(data).to.have.property('GetMatchingProductForIdResponse');
+        var respData = data.GetMatchingProductForIdResponse;
+        expect(respData).to.be.a('object');
+        expect(respData).to.have.property('GetMatchingProductForIdResult');
+        var resData2 = respData.GetMatchingProductForIdResult;
+        expect(reslData).to.be.a('array');
+        expect(reslData[0]).to.have.property('A$');
+        expect(reslData[0]['A$']).to.be.a('object');
+        expect(reslData[0]['A$']).to.have.property('Id', prodID);
+        done();
+      });
+    }); 
+
+    it('should get (GetCompetitivePricingForASIN) competitive pricing for ' + prodID, function(done) {
       appMWSProd.competitivePricingForASIN({asinList: [prodID]}, function(err, data) {
         if(err) {
           done(err.message);
@@ -113,19 +113,19 @@ describe('mwsProd', function() {
         }
 
         expect(data).to.have.property('GetCompetitivePricingForASINResponse');
-        var gmpfiresp = data.GetCompetitivePricingForASINResponse;
-        expect(gmpfiresp).to.be.a('object');
-        expect(gmpfiresp).to.have.property('GetCompetitivePricingForASINResult');
-        var gmpfires = gmpfiresp.GetCompetitivePricingForASINResult;
-        expect(gmpfires).to.be.a('array');
-        expect(gmpfires[0]).to.have.property('A$');
-        expect(gmpfires[0]['A$']).to.be.a('object');
-        expect(gmpfires[0]['A$']).to.have.property('ASIN', prodID);
+        var respData = data.GetCompetitivePricingForASINResponse;
+        expect(respData).to.be.a('object');
+        expect(respData).to.have.property('GetCompetitivePricingForASINResult');
+        var reslData = respData.GetCompetitivePricingForASINResult;
+        expect(reslData).to.be.a('array');
+        expect(reslData[0]).to.have.property('A$');
+        expect(reslData[0]['A$']).to.be.a('object');
+        expect(reslData[0]['A$']).to.have.property('ASIN', prodID);
         done();
       });
     });
 
-    it('should get lowest offer listings for ' + prodID, function(done) {
+    it('should get (GetLowestOfferListingsForASIN) lowest offer listings for ' + prodID, function(done) {
       appMWSProd.lowestOfferListingsForASIN({asinList: [prodID]}, function(err, data) {
         if(err) {
           done(err.message);
@@ -133,19 +133,19 @@ describe('mwsProd', function() {
         }
 
         expect(data).to.have.property('GetLowestOfferListingsForASINResponse');
-        var gmpfiresp = data.GetLowestOfferListingsForASINResponse;
-        expect(gmpfiresp).to.be.a('object');
-        expect(gmpfiresp).to.have.property('GetLowestOfferListingsForASINResult');
-        var gmpfires = gmpfiresp.GetLowestOfferListingsForASINResult;
-        expect(gmpfires).to.be.a('array');
-        expect(gmpfires[0]).to.have.property('A$');
-        expect(gmpfires[0]['A$']).to.be.a('object');
-        expect(gmpfires[0]['A$']).to.have.property('ASIN', prodID);
+        var respData = data.GetLowestOfferListingsForASINResponse;
+        expect(respData).to.be.a('object');
+        expect(respData).to.have.property('GetLowestOfferListingsForASINResult');
+        var reslData = respData.GetLowestOfferListingsForASINResult;
+        expect(reslData).to.be.a('array');
+        expect(reslData[0]).to.have.property('A$');
+        expect(reslData[0]['A$']).to.be.a('object');
+        expect(reslData[0]['A$']).to.have.property('ASIN', prodID);
         done();
       });
     });
 
-    it("should return seller's pricing info for " + prodID, function(done) {
+    it("should get (GetMyPriceForASIN) seller's price for " + prodID, function(done) {
       appMWSProd.myPriceForASIN({asinList: [prodID]}, function(err, data) {
         if(err) {
           done(err.message);
@@ -153,19 +153,19 @@ describe('mwsProd', function() {
         }
 
         expect(data).to.have.property('GetMyPriceForASINResponse');
-        var gmpfiresp = data.GetMyPriceForASINResponse;
-        expect(gmpfiresp).to.be.a('object');
-        expect(gmpfiresp).to.have.property('GetMyPriceForASINResult');
-        var gmpfires = gmpfiresp.GetMyPriceForASINResult;
-        expect(gmpfires).to.be.a('array');
-        expect(gmpfires[0]).to.have.property('A$');
-        expect(gmpfires[0]['A$']).to.be.a('object');
-        expect(gmpfires[0]['A$']).to.have.property('ASIN', prodID);
+        var respData = data.GetMyPriceForASINResponse;
+        expect(respData).to.be.a('object');
+        expect(respData).to.have.property('GetMyPriceForASINResult');
+        var reslData = respData.GetMyPriceForASINResult;
+        expect(reslData).to.be.a('array');
+        expect(reslData[0]).to.have.property('A$');
+        expect(reslData[0]['A$']).to.be.a('object');
+        expect(reslData[0]['A$']).to.have.property('ASIN', prodID);
         done();
       });
     });
 
-    it("should return parent categories for " + prodID, function(done) {
+    it("should get (GetProductCategoriesForASIN) parent categories for " + prodID, function(done) {
       appMWSProd.productCategoriesForASIN({asin: prodID}, function(err, data) {
         if(err) {
           done(err.message);
@@ -173,13 +173,13 @@ describe('mwsProd', function() {
         }
 
         expect(data).to.have.property('GetProductCategoriesForASINResponse');
-        var gmpfiresp = data.GetProductCategoriesForASINResponse;
-        expect(gmpfiresp).to.be.a('object');
-        expect(gmpfiresp).to.have.property('GetProductCategoriesForASINResult');
-        var gmpfires = gmpfiresp.GetProductCategoriesForASINResult;
-        expect(gmpfires).to.be.a('array');
-        expect(gmpfires[0]).to.have.property('Self');
-        expect(gmpfires[0]['Self']).to.be.a('object');
+        var respData = data.GetProductCategoriesForASINResponse;
+        expect(respData).to.be.a('object');
+        expect(respData).to.have.property('GetProductCategoriesForASINResult');
+        var reslData = respData.GetProductCategoriesForASINResult;
+        expect(reslData).to.be.a('array');
+        expect(reslData[0]).to.have.property('Self');
+        expect(reslData[0]['Self']).to.be.a('object');
         done();
       });
     });  
