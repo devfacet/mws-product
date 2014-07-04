@@ -11,20 +11,21 @@ var mwsProd = require('../'),
 // Tests
 
 // Test for the module
-describe('mwsProd', function() {
+describe('mws-product', function() {
 
-  var auth       = {sellerId: 'SELLERID', accessKeyId: 'ACCESSKEYID', secretKey: 'SECRETKEY'},
-      mplace     = 'US',
-      appMWSProd // mwsProd instance
+  var auth     = {sellerId: 'SELLERID', accessKeyId: 'ACCESSKEYID', secretKey: 'SECRETKEY'},
+      mplace   = 'US', // marketplace
+      app,     // mwsProd instance
+      authjson = utilex.tidyArgs()['auth-json']
   ;
 
-  if(utilex.tidyArgs().authJSON)
-    auth = require(utilex.tidyArgs().authJSON);
+  if(typeof authjson === 'string')
+    auth = require(authjson);
 
-  appMWSProd = mwsProd({auth: auth, marketplace: mplace});
+  app = mwsProd({auth: auth, marketplace: mplace});
 
   it('should get service status ', function(done) {
-    appMWSProd.serviceStatus(function(err, data) {
+    app.serviceStatus(function(err, data) {
       if(err) {
         done(err.message);
         return;
@@ -46,7 +47,7 @@ describe('mwsProd', function() {
     var prodID = 'B00863WC40';
 
     it('should get (ListMatchingProducts) a list of matching products for ' + prodID, function(done) {
-      appMWSProd.matchingProducts({query: prodID, queryContextId: 'All'}, function(err, data) {
+      app.matchingProducts({query: prodID, queryContextId: 'All'}, function(err, data) {
         if(err) {
           done(err.message);
           return;
@@ -65,7 +66,7 @@ describe('mwsProd', function() {
     });
 
     it('should get (GetMatchingProduct) matching product for ' + prodID, function(done) {
-      appMWSProd.matchingProduct({asinList: [prodID]}, function(err, data) {
+      app.matchingProduct({asinList: [prodID]}, function(err, data) {
         if(err) {
           done(err.message);
           return;
@@ -85,7 +86,7 @@ describe('mwsProd', function() {
     });
 
     it('should get (GetMatchingProductForId) matching products for ' + prodID, function(done) {
-      appMWSProd.matchingProductForId({idType: 'ASIN', idList: [prodID]}, function(err, data) {
+      app.matchingProductForId({idType: 'ASIN', idList: [prodID]}, function(err, data) {
         if(err) {
           done(err.message);
           return;
@@ -105,7 +106,7 @@ describe('mwsProd', function() {
     });
 
     it('should get (GetCompetitivePricingForASIN) competitive pricing for ' + prodID, function(done) {
-      appMWSProd.competitivePricingForASIN({asinList: [prodID]}, function(err, data) {
+      app.competitivePricingForASIN({asinList: [prodID]}, function(err, data) {
         if(err) {
           done(err.message);
           return;
@@ -125,7 +126,7 @@ describe('mwsProd', function() {
     });
 
     it('should get (GetLowestOfferListingsForASIN) lowest offer listings for ' + prodID, function(done) {
-      appMWSProd.lowestOfferListingsForASIN({asinList: [prodID]}, function(err, data) {
+      app.lowestOfferListingsForASIN({asinList: [prodID]}, function(err, data) {
         if(err) {
           done(err.message);
           return;
@@ -145,7 +146,7 @@ describe('mwsProd', function() {
     });
 
     it("should get (GetMyPriceForASIN) seller's price for " + prodID, function(done) {
-      appMWSProd.myPriceForASIN({asinList: [prodID]}, function(err, data) {
+      app.myPriceForASIN({asinList: [prodID]}, function(err, data) {
         if(err) {
           done(err.message);
           return;
@@ -165,7 +166,7 @@ describe('mwsProd', function() {
     });
 
     it("should get (GetProductCategoriesForASIN) parent categories for " + prodID, function(done) {
-      appMWSProd.productCategoriesForASIN({asin: prodID}, function(err, data) {
+      app.productCategoriesForASIN({asin: prodID}, function(err, data) {
         if(err) {
           done(err.message);
           return;
