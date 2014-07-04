@@ -1,10 +1,8 @@
 ## MWS Product
+[![NPM][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
 
 [mws-product](http://github.com/cmfatih/mws-product) is a Node.js module for 
 retrieving product information via Amazon MWS API.  
-
-[![Build Status][travis-image]][travis-url] | [![NPM][npm-image]][npm-url]
----------- | ----------
 
 ### Installation
 
@@ -35,9 +33,10 @@ Create a JSON file (ex. `auth.json`) like below;
   "secretKey": "SECRETKEY"
 }
 ```
+
 and execute the following command;
 ```
-node ./node_modules/mocha/bin/mocha --reporter spec test/test-all.js --authJSON ../auth.json
+node node_modules/mocha/bin/mocha --reporter spec test/test-all.js --auth-json ../auth.json
 ```
 
 #### Examples
@@ -45,10 +44,10 @@ node ./node_modules/mocha/bin/mocha --reporter spec test/test-all.js --authJSON 
 **Service Status**
 
 ```javascript
-var mwsProd    = require('mws-product');
-var appMWSProd = mwsProd({marketplace: 'US'});
+var mwsProd = require('mws-product');
+var app     = mwsProd({marketplace: 'US'});
 
-appMWSProd.serviceStatus(function(err, data) {
+app.serviceStatus(function(err, data) {
   if(!err) {
     console.log(JSON.stringify(data, null, 2));
   } else {
@@ -80,10 +79,10 @@ appMWSProd.serviceStatus(function(err, data) {
 **Matching Product For Id**
 
 ```javascript
-var mwsProd    = require('mws-product');
-var appMWSProd = mwsProd({auth: {sellerId: 'SELLERID', accessKeyId: 'ACCESSKEYID', secretKey: 'SECRETKEY'}, marketplace: 'US'});
+var mwsProd = require('mws-product');
+var app     = mwsProd({auth: {sellerId: 'SELLERID', accessKeyId: 'ACCESSKEYID', secretKey: 'SECRETKEY'}, marketplace: 'US'});
 
-appMWSProd.matchingProductForId({idType: 'ASIN', idList: ['B00863WC40','B008648946']}, function(err, data) {
+app.matchingProductForId({idType: 'ASIN', idList: ['B00863WC40','B008648946']}, function(err, data) {
   if(!err) {
     console.log(JSON.stringify(data, null, 2));
   } else {

@@ -1,11 +1,14 @@
 {
   "name": "mws-product",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "MWS Product module can be used for retrieving product information via Amazon MWS API.",
   "keywords": [
     "amazon",
     "mws",
-    "product"
+    "marketplace",
+    "product",
+    "asin",
+    "sku"
   ],
   "homepage": "http://github.com/cmfatih/mws-product",
   "repository": {
@@ -22,12 +25,12 @@
     "url": "http://github.com/cmfatih"
   },
   "contributors": [],
-  "main": "./lib/mws-product.js",
+  "main": "lib/mws-product.js",
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/mocha --timeout 5000 --slow 1000 --reporter spec test/test-all.js"
+    "test": "node node_modules/mocha/bin/mocha --timeout 5000 --slow 1000 --reporter spec test/test-all.js"
   },
   "engines": [
-    "node >= 0.10.21"
+    "node >= 0.10.20"
   ],
   "dependencies": {
     "utilex": "0.2.x",
@@ -36,7 +39,7 @@
     "xml2js": "0.4.x"
   },
   "devDependencies": {
-    "chai": "*",
-    "mocha": "*"
+    "mocha": "1.20.x",
+    "chai": "1.9.x"
   }
 }
