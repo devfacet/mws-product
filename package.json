@@ -1,6 +1,6 @@
 {
   "name": "mws-product",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MWS Product is a module for retrieving product information via Amazon MWS API.",
   "keywords": [
     "amazon",
