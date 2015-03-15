@@ -1,7 +1,5 @@
-// Init reqs
 /* jslint node: true */
-/* global describe: false */
-/* global it: false */
+/* global describe: false, it: false */
 'use strict';
 
 var mwsProd = require('../'),
@@ -10,14 +8,12 @@ var mwsProd = require('../'),
 
 // Tests
 
-// Test for the module
 describe('mws-product', function() {
 
   var auth     = {sellerId: 'SELLERID', accessKeyId: 'ACCESSKEYID', secretKey: 'SECRETKEY'},
       mplace   = 'US', // marketplace
       app,     // mwsProd instance
-      authjson = utilex.tidyArgs()['auth-json']
-  ;
+      authjson = utilex.tidyArgs()['auth-json'];
 
   if(typeof authjson === 'string')
     auth = require(authjson);
@@ -184,4 +180,5 @@ describe('mws-product', function() {
       });
     });
   }
+
 });
