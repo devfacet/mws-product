@@ -1,45 +1,16 @@
 ## MWS Product
+
 [![NPM][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
 
-[mws-product](http://github.com/cmfatih/mws-product) is a Node.js module for 
-retrieving product information via Amazon MWS API.  
+MWS Product is a module for retrieving product information via Amazon MWS API.
 
 ### Installation
 
-For latest release
 ```
 npm install mws-product
 ```
 
-For HEAD
-```
-git clone https://github.com/cmfatih/mws-product.git
-```
-
 ### Usage
-
-#### Test
-```
-npm test
-```
-
-#### Full API test
-
-Create a JSON file (ex. `auth.json`) like below;
-```JSON
-{
-  "sellerId": "SELLERID",
-  "accessKeyId": "ACCESSKEYID",
-  "secretKey": "SECRETKEY"
-}
-```
-
-and execute the following command;
-```
-node node_modules/mocha/bin/mocha --reporter spec test/test-all.js --auth-json ../auth.json
-```
-
-#### Examples
 
 **Service Status**
 
@@ -73,8 +44,6 @@ app.serviceStatus(function(err, data) {
 }
 */
 ```
-
--
 
 **Matching Product For Id**
 
@@ -400,28 +369,37 @@ app.matchingProductForId({idType: 'ASIN', idList: ['B00863WC40','B008648946']}, 
 */
 ```
 
+**Full API test**
+
+Create a JSON file (ex. `auth.json`) like below;
+```JSON
+{
+  "sellerId": "SELLERID",
+  "accessKeyId": "ACCESSKEYID",
+  "secretKey": "SECRETKEY"
+}
+```
+```
+node node_modules/mocha/bin/mocha --reporter spec test/test-all.js --auth-json ../auth.json
+```
+
 ### Implementations
 
-- [x] GetServiceStatus  
-- [x] ListMatchingProducts  
-- [x] ~~GetMatchingProduct~~  
-- [x] GetMatchingProductForId  
-- [x] GetCompetitivePricingForSKU  
-- [x] GetCompetitivePricingForASIN  
-- [x] GetLowestOfferListingsForSKU  
-- [x] GetLowestOfferListingsForASIN  
-- [x] GetMyPriceForSKU  
-- [x] GetMyPriceForASIN  
-- [x] GetProductCategoriesForSKU  
-- [x] GetProductCategoriesForASIN  
-
-### Changelog
-
-For all notable changes see [CHANGELOG.md](https://github.com/cmfatih/mws-product/blob/master/CHANGELOG.md)
+- [x] GetServiceStatus
+- [x] ListMatchingProducts
+- [x] ~~GetMatchingProduct~~
+- [x] GetMatchingProductForId
+- [x] GetCompetitivePricingForSKU
+- [x] GetCompetitivePricingForASIN
+- [x] GetLowestOfferListingsForSKU
+- [x] GetLowestOfferListingsForASIN
+- [x] GetMyPriceForSKU
+- [x] GetMyPriceForASIN
+- [x] GetProductCategoriesForSKU
+- [x] GetProductCategoriesForASIN
 
 ### License
 
-Copyright (c) 2014 Fatih Cetinkaya (http://github.com/cmfatih/mws-product)  
 Licensed under The MIT License (MIT)  
 For the full copyright and license information, please view the LICENSE.txt file.
 
