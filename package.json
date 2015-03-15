@@ -30,7 +30,7 @@
     "test": "node node_modules/mocha/bin/mocha --timeout 5000 --slow 1000 --reporter spec test/test-all.js"
   },
   "engines": [
-    "node >= 0.10.20"
+    "node >= 0.10.0"
   ],
   "dependencies": {
     "utilex": "0.2.x",
@@ -39,7 +39,7 @@
     "xml2js": "0.4.x"
   },
   "devDependencies": {
-    "mocha": "1.20.x",
-    "chai": "1.9.x"
+    "mocha": "2.2.x",
+    "chai": "2.1.x"
   }
 }
