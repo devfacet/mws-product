@@ -1,5 +1,3 @@
-// JSHint Configuration
-
 {
   "eqeqeq": true,
   "trailing": true,
