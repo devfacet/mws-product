@@ -4,7 +4,6 @@
  * For the full copyright and license information, please view the LICENSE.txt file.
  */
 
-// Init reqs
 /* jslint node: true */
 'use strict';
 
