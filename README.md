@@ -1,18 +1,18 @@
-## MWS Product
+# MWS Product
 
 [![NPM][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
 
 MWS Product is a module for retrieving product information via Amazon MWS API.
 
-### Installation
+## Installation
 
-```
+```bash
 npm install mws-product
 ```
 
-### Usage
+## Usage
 
-**Service Status**
+### Service Status
 
 ```javascript
 var mwsProd = require('mws-product');
@@ -45,7 +45,7 @@ app.serviceStatus(function(err, data) {
 */
 ```
 
-**Matching Product For Id**
+### Matching Product For Id
 
 ```javascript
 var mwsProd = require('mws-product');
@@ -369,9 +369,10 @@ app.matchingProductForId({idType: 'ASIN', idList: ['B00863WC40','B008648946']}, 
 */
 ```
 
-**Full API test**
+### Full test
 
 Create a JSON file (ex. `auth.json`) like below;
+
 ```JSON
 {
   "sellerId": "SELLERID",
@@ -379,11 +380,11 @@ Create a JSON file (ex. `auth.json`) like below;
   "secretKey": "SECRETKEY"
 }
 ```
-```
+```bash
 node node_modules/mocha/bin/mocha --reporter spec test/test-all.js --auth-json ../auth.json
 ```
 
-### Implementations
+## Implementations
 
 - [x] GetServiceStatus
 - [x] ListMatchingProducts
@@ -398,13 +399,13 @@ node node_modules/mocha/bin/mocha --reporter spec test/test-all.js --auth-json .
 - [x] GetProductCategoriesForSKU
 - [x] GetProductCategoriesForASIN
 
-### License
+## License
 
 Licensed under The MIT License (MIT)  
 For the full copyright and license information, please view the LICENSE.txt file.
 
 [npm-url]: http://npmjs.org/package/mws-product
-[npm-image]: https://badge.fury.io/js/mws-product.png
+[npm-image]: https://badge.fury.io/js/mws-product.svg
 
-[travis-url]: https://travis-ci.org/cmfatih/mws-product
-[travis-image]: https://travis-ci.org/cmfatih/mws-product.svg?branch=master
+[travis-url]: https://travis-ci.org/devfacet/mws-product
+[travis-image]: https://travis-ci.org/devfacet/mws-product.svg?branch=master

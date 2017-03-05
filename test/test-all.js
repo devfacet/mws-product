@@ -13,7 +13,7 @@ describe('mws-product', function() {
   var auth     = {sellerId: 'SELLERID', accessKeyId: 'ACCESSKEYID', secretKey: 'SECRETKEY'},
       mplace   = 'US', // marketplace
       app,     // mwsProd instance
-      authjson = utilex.tidyArgs()['auth-json'];
+      authjson = utilex.args()['auth-json'];
 
   if(typeof authjson === 'string')
     auth = require(authjson);

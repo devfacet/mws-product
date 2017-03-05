@@ -1,45 +1,37 @@
 {
   "name": "mws-product",
   "version": "1.0.1",
-  "description": "MWS Product is a module for retrieving product information via Amazon MWS API.",
+  "description": "A module for retrieving product information via Amazon MWS API",
+  "main": "index.js",
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha --timeout 5000 --slow 1000 --reporter spec test/test-all.js",
+    "test-auth": "node node_modules/mocha/bin/mocha --reporter spec test/test-all.js --auth-json ../auth.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devfacet/mws-product.git"
+  },
   "keywords": [
     "amazon",
     "mws",
     "marketplace",
     "product",
     "asin",
-    "sku"
+    "sku",
+    "fba",
+    "fbm"
   ],
-  "homepage": "http://github.com/cmfatih/mws-product",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/cmfatih/mws-product.git"
-  },
-  "bugs": {
-    "url": "http://github.com/cmfatih/mws-product/issues"
-  },
+  "author": "devfacet",
   "license": "MIT",
-  "private": false,
-  "author": {
-    "name": "cmfatih",
-    "url": "http://github.com/cmfatih"
-  },
-  "contributors": [],
-  "main": "lib/mws-product.js",
-  "scripts": {
-    "test": "node node_modules/mocha/bin/mocha --timeout 5000 --slow 1000 --reporter spec test/test-all.js"
-  },
-  "engines": [
-    "node >= 0.10.0"
-  ],
+  "homepage": "http://github.com/devfacet/mws-product",
   "dependencies": {
-    "utilex": "0.2.x",
-    "request": "2.x",
-    "qs": "0.6.x",
+    "utilex": "3.x.x",
+    "request": "2.80.x",
+    "qs": "6.3.x",
     "xml2js": "0.4.x"
   },
   "devDependencies": {
-    "mocha": "2.2.x",
-    "chai": "2.1.x"
+    "mocha": "3.2.x",
+    "chai": "3.5.x"
   }
 }
