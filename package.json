@@ -1,6 +1,6 @@
 {
   "name": "mws-product",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A module for retrieving product information via Amazon MWS API",
   "main": "index.js",
   "scripts": {
