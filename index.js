@@ -241,10 +241,11 @@ exports = module.exports = function(options) {
   matchingProductForId = function matchingProductForId(options, callback) {
 
     var idType = (options && options.idType) ? ('' + options.idType) : null,
-        idList = (options && options.idList) ? options.idList        : null;
+        idList = (options && options.idList) ? options.idList        : null,
+	idMarketplace = (options && options.idMarketplace) ? options.idMarketplace : mpList[mpCur].id;
 
     // Request
-    var reqForm = {query: {"Action": "GetMatchingProductForId", "MarketplaceId": mpList[mpCur].id, "IdType": idType}};
+    var reqForm = {query: {"Action": "GetMatchingProductForId", "MarketplaceId": idMarketplace, "IdType": idType}};
 
     mwsReqParamFormatter(reqForm, 'IdList.Id', idList);
     mwsReqProcessor(reqForm, 'matchingProductForId', "GetMatchingProductForIdResponse", "GetMatchingProductForIdResult", "mwsprod-004", callback);
@@ -255,10 +256,11 @@ exports = module.exports = function(options) {
   matchingProducts = function matchingProducts(options, callback) {
 
     var query          = (options && options.query)          ? ('' + options.query)   : null,
-        queryContextId = (options && options.queryContextId) ? options.queryContextId : null;
+        queryContextId = (options && options.queryContextId) ? options.queryContextId : null,
+	idMarketplace = (options && options.idMarketplace) ? options.idMarketplace : mpList[mpCur].id;
 
     // Request
-    var reqForm = {query: {"Action": "ListMatchingProducts", "MarketplaceId": mpList[mpCur].id, "Query": query, "QueryContextId": queryContextId}};
+    var reqForm = {query: {"Action": "ListMatchingProducts", "MarketplaceId": idMarketplace, "Query": query, "QueryContextId": queryContextId}};
 
     mwsReqProcessor(reqForm, 'matchingProducts', "ListMatchingProductsResponse", "ListMatchingProductsResult", "mwsprod-005", callback);
   };
@@ -266,10 +268,11 @@ exports = module.exports = function(options) {
   // Gets products and attributes for a given ASIN list
   matchingProduct = function matchingProduct(options, callback) {
 
-    var asinList = (options && options.asinList) ? options.asinList : null;
+    var asinList = (options && options.asinList) ? options.asinList : null,
+	idMarketplace = (options && options.idMarketplace) ? options.idMarketplace : mpList[mpCur].id;
 
     // Request
-    var reqForm = {query: {"Action": "GetMatchingProduct", "MarketplaceId": mpList[mpCur].id}};
+    var reqForm = {query: {"Action": "GetMatchingProduct", "MarketplaceId": idMarketplace}};
 
     mwsReqParamFormatter(reqForm, 'ASINList.ASIN', asinList);
     mwsReqProcessor(reqForm, 'matchingProduct', "GetMatchingProductResponse", "GetMatchingProductResult", "mwsprod-006", callback);
@@ -278,10 +281,11 @@ exports = module.exports = function(options) {
   // Gets competitive pricing for the given SKU list
   competitivePricingForSKU = function competitivePricingForSKU(options, callback) {
 
-    var skuList = (options && options.skuList) ? options.skuList : null;
+    var skuList = (options && options.skuList) ? options.skuList : null,
+	idMarketplace = (options && options.idMarketplace) ? options.idMarketplace : mpList[mpCur].id;
 
     // Request
-    var reqForm = {query: {"Action": "GetCompetitivePricingForSKU", "MarketplaceId": mpList[mpCur].id}};
+    var reqForm = {query: {"Action": "GetCompetitivePricingForSKU", "MarketplaceId": idMarketplace}};
 
     mwsReqParamFormatter(reqForm, 'SellerSKUList.SellerSKU', skuList);
     mwsReqProcessor(reqForm, 'competitivePricingForSKU', "GetCompetitivePricingForSKUResponse", "GetCompetitivePricingForSKUResult", "mwsprod-007", callback);
@@ -290,10 +294,11 @@ exports = module.exports = function(options) {
   // Gets competitive pricing for the given ASIN list
   competitivePricingForASIN = function competitivePricingForASIN(options, callback) {
 
-    var asinList = (options && options.asinList) ? options.asinList : null;
+    var asinList = (options && options.asinList) ? options.asinList : null,
+	idMarketplace = (options && options.idMarketplace) ? options.idMarketplace : mpList[mpCur].id;
 
     // Request
-    var reqForm = {query: {"Action": "GetCompetitivePricingForASIN", "MarketplaceId": mpList[mpCur].id}};
+    var reqForm = {query: {"Action": "GetCompetitivePricingForASIN", "MarketplaceId": idMarketplace}};
 
     mwsReqParamFormatter(reqForm, 'ASINList.ASIN', asinList);
     mwsReqProcessor(reqForm, 'competitivePricingForASIN', "GetCompetitivePricingForASINResponse", "GetCompetitivePricingForASINResult", "mwsprod-008", callback);
@@ -305,10 +310,11 @@ exports = module.exports = function(options) {
 
     var skuList       = (options && options.skuList)            ? options.skuList       : null,
         itemCondition = (options && options.itemCondition)      ? options.itemCondition : 'Any',
-        excludeMe     = (options && options.excludeMe === true) ? 'True'                : 'False';
+        excludeMe     = (options && options.excludeMe === true) ? 'True'                : 'False',
+	idMarketplace = (options && options.idMarketplace) ? options.idMarketplace : mpList[mpCur].id;;
 
     // Request
-    var reqForm = {query: {"Action": "GetLowestOfferListingsForSKU", "MarketplaceId": mpList[mpCur].id, "ItemCondition": itemCondition, "ExcludeMe": excludeMe}};
+    var reqForm = {query: {"Action": "GetLowestOfferListingsForSKU", "MarketplaceId": idMarketplace, "ItemCondition": itemCondition, "ExcludeMe": excludeMe}};
 
     mwsReqParamFormatter(reqForm, 'SellerSKUList.SellerSKU', skuList);
     mwsReqProcessor(reqForm, 'lowestOfferListingsForSKU', "GetLowestOfferListingsForSKUResponse", "GetLowestOfferListingsForSKUResult", "mwsprod-009", callback);
@@ -320,10 +326,11 @@ exports = module.exports = function(options) {
 
     var asinList      = (options && options.asinList)           ? options.asinList      : null,
         itemCondition = (options && options.itemCondition)      ? options.itemCondition : 'Any',
-        excludeMe     = (options && options.excludeMe === true) ? 'True'                : 'False';
+        excludeMe     = (options && options.excludeMe === true) ? 'True'                : 'False',
+	idMarketplace = (options && options.idMarketplace) ? options.idMarketplace : mpList[mpCur].id;
 
     // Request
-    var reqForm = {query: {"Action": "GetLowestOfferListingsForASIN", "MarketplaceId": mpList[mpCur].id, "ItemCondition": itemCondition, "ExcludeMe": excludeMe}};
+    var reqForm = {query: {"Action": "GetLowestOfferListingsForASIN", "MarketplaceId": idMarketplace, "ItemCondition": itemCondition, "ExcludeMe": excludeMe}};
 
     mwsReqParamFormatter(reqForm, 'ASINList.ASIN', asinList);
     mwsReqProcessor(reqForm, 'lowestOfferListingsForASIN', "GetLowestOfferListingsForASINResponse", "GetLowestOfferListingsForASINResult", "mwsprod-010", callback);
@@ -334,10 +341,11 @@ exports = module.exports = function(options) {
   myPriceForSKU = function myPriceForSKU(options, callback) {
 
     var skuList       = (options && options.skuList)       ? options.skuList       : null,
-        itemCondition = (options && options.itemCondition) ? options.itemCondition : 'Any';
+        itemCondition = (options && options.itemCondition) ? options.itemCondition : 'Any',
+	idMarketplace = (options && options.idMarketplace) ? options.idMarketplace : mpList[mpCur].id;;
 
     // Request
-    var reqForm = {query: {"Action": "GetMyPriceForSKU", "MarketplaceId": mpList[mpCur].id, "ItemCondition": itemCondition}};
+    var reqForm = {query: {"Action": "GetMyPriceForSKU", "MarketplaceId": idMarketplace, "ItemCondition": itemCondition}};
 
     mwsReqParamFormatter(reqForm, 'SellerSKUList.SellerSKU', skuList);
     mwsReqProcessor(reqForm, 'myPriceForSKU', "GetMyPriceForSKUResponse", "GetMyPriceForSKUResult", "mwsprod-011", callback);
@@ -348,10 +356,11 @@ exports = module.exports = function(options) {
   myPriceForASIN = function myPriceForASIN(options, callback) {
 
     var asinList      = (options && options.asinList)      ? options.asinList      : null,
-        itemCondition = (options && options.itemCondition) ? options.itemCondition : 'Any';
+        itemCondition = (options && options.itemCondition) ? options.itemCondition : 'Any',
+	idMarketplace = (options && options.idMarketplace) ? options.idMarketplace : mpList[mpCur].id;
 
     // Request
-    var reqForm = {query: {"Action": "GetMyPriceForASIN", "MarketplaceId": mpList[mpCur].id, "ItemCondition": itemCondition}};
+    var reqForm = {query: {"Action": "GetMyPriceForASIN", "MarketplaceId": idMarketplace, "ItemCondition": itemCondition}};
 
     mwsReqParamFormatter(reqForm, 'ASINList.ASIN', asinList);
     mwsReqProcessor(reqForm, 'myPriceForASIN', "GetMyPriceForASINResponse", "GetMyPriceForASINResult", "mwsprod-012", callback);
@@ -360,10 +369,11 @@ exports = module.exports = function(options) {
   // Returns parent categories for the given SKU
   productCategoriesForSKU = function productCategoriesForSKU(options, callback) {
 
-    var sku = (options && options.sku) ? options.sku : null;
+    var sku = (options && options.sku) ? options.sku : null,
+	idMarketplace = (options && options.idMarketplace) ? options.idMarketplace : mpList[mpCur].id;
 
     // Request
-    var reqForm = {query: {"Action": "GetProductCategoriesForSKU", "MarketplaceId": mpList[mpCur].id, "SKU": sku}};
+    var reqForm = {query: {"Action": "GetProductCategoriesForSKU", "MarketplaceId": idMarketplace, "SKU": sku}};
 
     mwsReqProcessor(reqForm, 'productCategoriesForSKU', "GetProductCategoriesForSKUResponse", "GetProductCategoriesForSKUResult", "mwsprod-013", callback);
   };
@@ -371,10 +381,11 @@ exports = module.exports = function(options) {
   // Returns parent categories for the given ASIN
   productCategoriesForASIN = function productCategoriesForASIN(options, callback) {
 
-    var asin = (options && options.asin) ? options.asin : null;
+    var asin = (options && options.asin) ? options.asin : null,
+	idMarketplace = (options && options.idMarketplace) ? options.idMarketplace : mpList[mpCur].id;
 
     // Request
-    var reqForm = {query: {"Action": "GetProductCategoriesForASIN", "MarketplaceId": mpList[mpCur].id, "ASIN": asin}};
+    var reqForm = {query: {"Action": "GetProductCategoriesForASIN", "MarketplaceId": idMarketplace, "ASIN": asin}};
 
     mwsReqProcessor(reqForm, 'productCategoriesForASIN', "GetProductCategoriesForASINResponse", "GetProductCategoriesForASINResult", "mwsprod-014", callback);
   };
