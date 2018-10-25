@@ -305,7 +305,7 @@ exports = module.exports = function(options) {
 
     var skuList       = (options && options.skuList)            ? options.skuList       : null,
         itemCondition = (options && options.itemCondition)      ? options.itemCondition : 'Any',
-        excludeMe     = (options && options.excludeMe === true) ? 'True'                : 'False';
+        excludeMe     = (options && options.excludeMe === true) ? 'true'                : 'false';
 
     // Request
     var reqForm = {query: {"Action": "GetLowestOfferListingsForSKU", "MarketplaceId": mpList[mpCur].id, "ItemCondition": itemCondition, "ExcludeMe": excludeMe}};
@@ -320,7 +320,7 @@ exports = module.exports = function(options) {
 
     var asinList      = (options && options.asinList)           ? options.asinList      : null,
         itemCondition = (options && options.itemCondition)      ? options.itemCondition : 'Any',
-        excludeMe     = (options && options.excludeMe === true) ? 'True'                : 'False';
+        excludeMe     = (options && options.excludeMe === true) ? 'true'                : 'false';
 
     // Request
     var reqForm = {query: {"Action": "GetLowestOfferListingsForASIN", "MarketplaceId": mpList[mpCur].id, "ItemCondition": itemCondition, "ExcludeMe": excludeMe}};
